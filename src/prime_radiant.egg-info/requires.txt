@@ -1,0 +1,5 @@
+marimo
+
+[dev]
+jupyterlab
+pytest

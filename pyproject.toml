@@ -1,0 +1,14 @@
+[project]
+name = "prime_radiant"
+version = "0.1.0"
+description = "A description of prime_radiant."
+readme = "README.md"
+requires-python = ">=3.8"
+dependencies = ["marimo"]
+
+[project.optional-dependencies]
+dev = ["jupyterlab","pytest"]
+
+[build-system]
+requires = ["setuptools>=42","wheel"]
+build-backend = "setuptools.build_meta"

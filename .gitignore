@@ -1,60 +1,19 @@
-__pycache__/
-.ipynb_checkpoints/
-.jupyter/lab/workspaces/
-.jupyter/lab/user-settings/
-*.py[cod]
-.venv/
-EOF && 
-cat > projects/prime_radiant/README.md << 'EOF'
-# prime_radiant
+ # Byte-compiled / optimized / DLL files
+ __pycache__/
+ *.py[cod]
 
-A new Python project scaffolded with JupyterLab and Marimo integration.
-EOF && 
-cp .config/marimo/marimo.toml projects/prime_radiant/marimo.toml && 
-cat > projects/prime_radiant/pyproject.toml << 'EOF'
-[project]
-name = "prime_radiant"
-version = "0.1.0"
-description = "Project description."
-authors = ["Your Name <you@example.com>"]
-readme = "README.md"
-requires-python = ">=3.8"
-dependencies = [
-  "marimo"
-]
+ # Jupyter Notebook checkpoints
+ .ipynb_checkpoints/
 
-[project.optional-dependencies]
-dev = [
-  "pytest",
-  "jupyterlab"
-]
-EOF && 
-cat > projects/prime_radiant/start-lab.sh << 'EOF'
-#!/usr/bin/env bash
-exec jupyter lab \
-  --LabApp.user_settings_dir=.jupyter/lab/user-settings \
-  --LabApp.app_settings_dir=.jupyter/lab/app-settings \
-  --LabServerApp.workspaces_dir=.jupyter/lab/workspaces \
-  "$@"
-EOF && 
-chmod +x projects/prime_radiant/start-lab.sh && 
-cat > projects/prime_radiant/.github/workflows/ci.yml << 'EOF'
-name: CI
-on: [push, pull_request]
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-python@v4
-        with:
-          python-version: '3.x'
-      - run: pip install .[dev]
-      - run: pytest
-EOF && 
-cat > projects/prime_radiant/src/prime_radiant/__init__.py << 'EOF'
-# prime_radiant package
-EOF && 
-cat > projects/prime_radiant/tests/test_example.py << 'EOF'
-def test_example():
-    assert True
+ # Marimo/JupyterLab settings & workspaces
+ .jupyter/lab/workspaces/
+ .jupyter/lab/user-settings/
+
+ # Virtual environments
+ .venv/
+
+ # Pytest cache
+ .pytest_cache/
+
+ # Egg and wheel info
+ *.egg-info/
